@@ -6,7 +6,7 @@
 /*   By: youskim <youskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:36:02 by youskim           #+#    #+#             */
-/*   Updated: 2022/02/24 15:05:15 by youskim          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:17:09 by youskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	*ft_memset(void *b, int c, size_t n)
 	return (str);
 }
 
-static int	length_hex(unsigned int num)
+static int	length_hex(unsigned long long num)
 {
 	int	length;
 
@@ -44,7 +44,7 @@ static int	length_hex(unsigned int num)
 	return (length);
 }
 
-char	*change_hex(unsigned int num)
+char	*change_hex(unsigned long long num)
 {
 	char			*hex;
 	char			*i_to_h;
@@ -54,7 +54,7 @@ char	*change_hex(unsigned int num)
 	i_to_h = (char *)malloc(sizeof(char) * (length_hex(num) + 1));
 	if (i_to_h == 0)
 		return (NULL);
-	ft_memset(i_to_h, 0, 9);
+	ft_memset(i_to_h, 0, length_hex(num) + 1);
 	if (num == 0)
 	{
 		i_to_h[0] = '0';

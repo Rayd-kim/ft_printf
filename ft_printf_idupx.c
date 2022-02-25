@@ -62,7 +62,7 @@ static int	print_u(unsigned int n)
 	return (len);
 }
 
-static int	print_x(char type, unsigned int n)
+static int	print_x(char type, unsigned long long n)
 {
 	char	*n_to_hex;
 	int		len;
@@ -92,7 +92,7 @@ int	print_idupx(char type, va_list ap)
 	else if (type == 'p')
 	{
 		write (1, "0x", 2);
-		return (2 + print_x('x', va_arg(ap, unsigned int)));
+		return (2 + print_x('x', va_arg(ap, unsigned long long)));
 	}
 	else if (type == 'u')
 		return (print_u(va_arg(ap, unsigned int)));
